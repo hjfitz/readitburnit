@@ -1,0 +1,10 @@
+lambda/node_modules/
+lambda/dist/
+
+.terraform
+.terraform.lock.hcl
+*.zip
+terraform.tfstate
+terraform.tfstate.backup
+graph.svg
+tfplan
