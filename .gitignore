@@ -8,3 +8,5 @@ terraform.tfstate
 terraform.tfstate.backup
 graph.svg
 tfplan
+
+coverage

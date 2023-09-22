@@ -20,6 +20,7 @@ export interface Err<T> {
 export type Result<T, U> = OK<T> | Result<U>
 
 
+
 export type GetItem = (i: string) => Promise<Result<any, string | null>>
 export type BuildGetItem = (c: DynamoDBDocumentClient, t: string) => GetItem
 
