@@ -4,13 +4,16 @@ import { Err, Ok } from "./result.mjs"
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb'
 
 
+/**
+ * @return {string}
+ */
 export const gen_key = () => {
 				const rand = crypto.randomUUID()
 				return rand.replace('-', '')
 }
 
 /**
- * @param {DynamoDBDocumentClient} client
+ * @type {import('./types').BuildGetItem}
  */
 export const build_get_item = (client, table_name) => async (id) => {
 				const command = new GetCommand({
@@ -32,6 +35,9 @@ export const build_get_item = (client, table_name) => async (id) => {
 				}
 }
 
+/**
+ * @type {import('./types').BuildSaveItem}
+ */
 export const build_save_item = (client, table_name) => async (id, enc_payload) => {
 				const command = new PutCommand({
 								TableName: table_name,
@@ -42,13 +48,18 @@ export const build_save_item = (client, table_name) => async (id, enc_payload) =
 				})
 
 				try {
-								const raw = await client.send(command)
-								return Ok(raw)
+								await client.send(command)
+								return Ok(null)
 				} catch (err) {
 								return Err(err.toString())
 				}
 }
- export const build_delete_item = (client, table_name) => async (id) => {
+
+
+/**
+ * @type {import('./types').BuildDeleteItem}
+ */
+export const build_delete_item = (client, table_name) => async (id) => {
 				 const command = new DeleteCommand({
 								 TableName: table_name,
 								 Key: {
@@ -64,6 +75,9 @@ export const build_save_item = (client, table_name) => async (id, enc_payload) =
 				 }
  }
 
+/**
+ * @return {DynamoDBDocumentClient}
+ */
 export const build_client = () => {
 				const client = new DynamoDBClient({
 								// temporary until we do some env hackery around localstack

@@ -1,6 +1,9 @@
 import { dec, enc } from "./crypto.mjs"
 import { gen_key } from "./db.mjs"
 
+/**
+ * @type {import('./types').BuildWriteHandler}
+ */
 export const build_write_handler = (config, save_item) => async (event) => {
 				const payload = event.body
 
@@ -40,6 +43,9 @@ export const build_write_handler = (config, save_item) => async (event) => {
 				}
 }
 
+/**
+ * @type {import('./types').BuildReadHandler}
+ */
 export const build_read_handler = (config, get_item, delete_item) => async (event) => {
 
 				const {id} = event.queryStringParameters

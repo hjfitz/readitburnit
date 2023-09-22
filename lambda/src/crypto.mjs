@@ -3,6 +3,7 @@ import crypto from 'node:crypto'
 /**
  * @param {any} payload
  * @param {string} key
+ * @param {string} iv
  * @returns {Promise<string>}
  */
 export const enc = async (payload, key, iv) => {
@@ -14,6 +15,7 @@ export const enc = async (payload, key, iv) => {
 /**
  * @param {string} payload_enc
  * @param {string} key
+ * @param {string} iv
  * @returns {Promise<any>}
  */
 export const dec = async (payload_enc, key, iv) => {
