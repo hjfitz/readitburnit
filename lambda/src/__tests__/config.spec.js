@@ -1,4 +1,4 @@
-import { get_config, validate_config } from "./config.mjs"
+import { get_config, validate_config } from "../config.mjs"
 
 const EXPECTED_SECRET = 'secret'
 const EXPECTED_IV = 'iv'

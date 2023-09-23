@@ -52,7 +52,7 @@ export const build_read_handler = (config, get_item, delete_item) => async (even
 
 				if (!id) {
 								return {
-												statusCode: 404,
+												statusCode: 400,
 												body: 'Missing ID',
 								}
 				}

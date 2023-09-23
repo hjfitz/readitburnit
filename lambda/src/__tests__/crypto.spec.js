@@ -1,4 +1,4 @@
-import { dec, enc } from "./crypto.mjs"
+import { dec, enc } from "../crypto.mjs"
 
 const TEST_KEY = 'hunter2'.padEnd(32)
 const TEST_IV = 'dQw4w9WgXcQ'.padEnd(16)
